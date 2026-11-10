@@ -1,0 +1,14 @@
+{
+  "name": "bgremover-plugin",
+  "description": "Remove or replace video and image backgrounds with BGRemover Video.",
+  "version": "1.0.0",
+  "author": {
+    "name": "BGRemover Video Team"
+  },
+  "mcpServers": {
+    "bgremover": {
+      "type": "http",
+      "url": "https://mcp.bgremover.video/mcp"
+    }
+  }
+}

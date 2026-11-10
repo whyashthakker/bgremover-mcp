@@ -1,0 +1,16 @@
+{
+  "name": "bgremover-marketplace",
+  "owner": {
+    "name": "BGRemover Video Team"
+  },
+  "plugins": [
+    {
+      "name": "bgremover-plugin",
+      "source": {
+        "source": "github",
+        "repo": "whyashthakker/bgremover-mcp"
+      },
+      "description": "AI video and image background removal tools."
+    }
+  ]
+}
