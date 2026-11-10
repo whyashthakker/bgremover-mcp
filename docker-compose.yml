@@ -1,0 +1,27 @@
+services:
+  bgremover-mcp:
+    build: .
+    image: bgremover-mcp:latest
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: 0.0.0.0
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Public URL of this server (used in OAuth discovery) and allowed Host headers.
+      MCP_SERVER_URL: ${MCP_SERVER_URL:-https://mcp.bgremover.video}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-mcp.bgremover.video,localhost}
+      BGREMOVER_API_BASE_URL: ${BGREMOVER_API_BASE_URL:-https://www.bgremover.video/api/v1}
+      BGREMOVER_TIMEOUT_MS: ${BGREMOVER_TIMEOUT_MS:-120000}
+      BGREMOVER_OAUTH_ISSUER: ${BGREMOVER_OAUTH_ISSUER:-https://www.bgremover.video}
+      BGREMOVER_OAUTH_AUTHORIZE: ${BGREMOVER_OAUTH_AUTHORIZE:-https://www.bgremover.video/oauth/authorize}
+      BGREMOVER_OAUTH_TOKEN: ${BGREMOVER_OAUTH_TOKEN:-https://www.bgremover.video/oauth/token}
+      BGREMOVER_OAUTH_REGISTER: ${BGREMOVER_OAUTH_REGISTER:-https://www.bgremover.video/oauth/register}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

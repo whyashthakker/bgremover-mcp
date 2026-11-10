@@ -135,11 +135,11 @@ export function registerTools(
     "This tool will remove or replace the background of a video, producing a transparent, solid-color, or custom-image background. " +
       "This is an asynchronous operation and spends credits; use get_job_status with the returned job_id to retrieve the result. " +
       "It takes the following arguments: " +
-      "- media_file or video_url (one required): The video to process, either an uploaded file or a public URL. " +
+      "- media_file or video_url (one required): The video to process, either an uploaded file or a public URL that links directly to a real video file (not a web page). " +
       "- output_transparent (bool, optional): Make the background transparent. Defaults to true unless a color or image background is given. " +
       "- background_color (str, optional): Hex color to fill the background with. " +
       "- background_image_url (str, optional): Public URL of an image to use as the new background. " +
-      "- duration_seconds (number, optional): Video length in seconds (max 3600). Measured automatically when omitted. " +
+      "- duration_seconds (number, optional): Informational only; the server measures the real length (max 3600s) to price the job. " +
       "- is_watermark (bool, optional): Defaults to true. Watermark-free exports cost double for accounts that have never purchased credits.",
     removeVideoBackgroundSchema,
     async (input, extra) =>

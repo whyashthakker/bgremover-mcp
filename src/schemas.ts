@@ -38,7 +38,7 @@ export const removeVideoBackgroundSchema = {
     .max(3600)
     .optional()
     .describe(
-      "Length of the video in seconds (max 3600). Omit to have it measured automatically; it determines the credit cost.",
+      "Optional and informational only: the server always measures the real video length (max 3600s), which determines the credit cost.",
     ),
   is_watermark: z
     .boolean()
